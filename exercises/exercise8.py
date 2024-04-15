@@ -13,7 +13,7 @@ nombre_articulos = ["ventana", "lámpara", "shampoo"]
 precio_articulos = [100.48, 16.42, 5.20]
 
 
-def combinar_basico(nombres: List[str], precios: List[float]) -> Tuple[Any]:
+def combinar_basico(nombres: list[str], precios: list[float]) -> Tuple[Any]:
     """Toma dos listas y devuelve una tupla de duplas con los componentes de
     las listas.
 
@@ -22,7 +22,13 @@ def combinar_basico(nombres: List[str], precios: List[float]) -> Tuple[Any]:
         - Utilizar la función range.
         - Utilizar índices.
     """
+    tupla = []
 
+    for i in range(0, len(nombres)):
+        aux = (nombres[i], precios[i])
+        tupla.append(aux)
+    
+    return tuple(tupla)
 
 # NO MODIFICAR - INICIO
 respuesta = (
@@ -52,6 +58,14 @@ def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int])
     Referencia: https://docs.python.org/3/library/functions.html#enumerate
     """
 
+    tupla = []
+
+    for indice, elemento in enumerate(nombres):
+        aux = (elemento, precios[indice], ids[indice])
+        tupla.append(aux)
+    
+    return tuple(tupla)
+ 
 
 # NO MODIFICAR - INICIO
 respuesta = (
@@ -81,6 +95,7 @@ def combinar_zip(nombres: List[str], precios: List[float], ids: List[int]) -> Tu
     Referencia: https://docs.python.org/3/library/functions.html#zip
     """
 
+    return tuple(zip(nombres, precios, ids))
 
 # NO MODIFICAR - INICIO
 respuesta = (
@@ -113,6 +128,8 @@ def combinar_zip_args(*args) -> Tuple[Any]:
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists  # noqa: E501
     """
 
+
+    return tuple(zip(*args))
 
 # NO MODIFICAR - INICIO
 respuesta = (
